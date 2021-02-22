@@ -1,4 +1,7 @@
+require './app/helpers/sessions_helper'
+
 class ApplicationController < ActionController::Base
+  include SessionsHelper
 
   private
 
