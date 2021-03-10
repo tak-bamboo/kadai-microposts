@@ -37,20 +37,20 @@ class User < ApplicationRecord
   end
 
 #お気に入り追加  
-  def favorite(other_micropost)
+  def like(other_micropost)
       self.favorites.find_or_create_by(micropost_id: other_micropost.id)
   end
 
 
 #お気に入り削除
-  def unfavorite(other_micropost)
+  def unlike(other_micropost)
     favorite = self.favorites.find_by(micropost_id: other_micropost.id)
    favorite.destroy if favorite
   end
 
 
 #お気に入りに追加しているかどうか確認するアクション
-  def favorite?(other_micropost)
+  def like?(other_micropost)
     self.favorite_posts.include?(other_micropost)
   end
 

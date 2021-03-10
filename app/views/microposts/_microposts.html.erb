@@ -10,10 +10,10 @@
           <p class="mb-0"><%= micropost.content %></p>
         </div>
         <div>
-          <% if current_user.favorite?(micropost) %>
-            <%= link_to 'unfavorite', unfavorites_micropost_url(micropost) , method: :delete, class: 'btn btn-warning btn-sm'%>
+          <% if current_user.like?(micropost) %>
+            <%= link_to 'unlike', unfavorites_micropost_url(micropost) , method: :delete, class: 'btn btn-warning btn-sm'%>
           <% else %>
-            <%= link_to 'favorite', favorites_micropost_url(micropost) , method: :post, class: 'btn btn-info btn-sm' %>
+            <%= link_to 'Like', favorites_micropost_url(micropost) , method: :post, class: 'btn btn-info btn-sm' %>
           <% end %>
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
